@@ -8,7 +8,8 @@ from zipfile2 import ZipFile
 
 
 def get_urls(artist):
-    url = 'https://51comic.org/index.php/search?key=' + urllib.parse.quote(artist)
+    # For privacy and information security reasons, I hide the name of the comic website here
+    url = '********************' + urllib.parse.quote(artist)
     headers = {'User-Agent': 'Mozilla/5.0'}
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.content, 'lxml')
@@ -65,7 +66,7 @@ def print_runtime(t):
 
 if __name__ == '__main__':
     start = time.time()
-    tips = ''
+    tips = '' # the name of the painter or comic
     urls = get_urls(tips)
     if len(urls) == 0:
         print('No matching results')
